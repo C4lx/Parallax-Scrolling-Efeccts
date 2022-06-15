@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling WebSite | Teste</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="img/bird1.png">
+    <link rel="stylesheet" href="img/bird2.png">
+    <link rel="stylesheet" href="img/rocks.png">
+    <link rel="stylesheet" href="img/forest.png">
+    <link rel="stylesheet" href="img/water.png">
+</head>
+<body>
+    <header id="header">
+        <a href="#" class="logo">Jungle</a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Destino</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </header>
+    <section>
+        <h2 id="text"><span>É hora de uma nova</span><br>Aventura</h2>
+        <img src="img/bird1.png" id="bird1">
+        <img src="img/bird2.png" id="bird2">
+        <img src="img/forest.png" id="forest">       
+
+        <a href="#" id="bnt">Explore</a>
+        <img src="img/rocks.png" id="rocks">
+        <img src="img/water.png" id="water">
+
+    </section>
+    <div class="sec">   
+        <h2>Parallax Scrolling Efeccts</h2>
+            <p>
+            <br><br>Parallax Scrolling foi uma das grandes tendências do webdesign em 2012. Mesmo que você não conheça o termo é capaz de já ter visto o efeito por aí… Ele serve para
+            dar a ilusão de profundidade de campo e pode ser utilizado para criar uma experiência de navegação bem diferentes do convencional. Neste artigo vamos entender da onde surgiu
+            este termo, quais cuidados devemos tomar e é claro, como implementar o efeito de parallax scrolling através de javascript.<br></br>O que afinal é parallax?<br></br>Paralaxe é
+            a alteração aparente de um objeto contra um fundo devido ao movimento do observador.<br></br> Parece confuso? Existe uma experiência simples para ver este efeito no “mundo real”.
+            Você pode testar agora mesmo. Levante seu dedo indicador e estique o braço. Agora feche um olho e preste atenção no fundo atrás do seu dedo. Depois, ainda com o braço parado,
+            feche o olho que estava aberto e abra o outro. A impressão é que dá é que seu dedo “andou” em relação ao fundo, certo?<br></br>O que isto tem a ver com desenvolvimento web?<br></br>
+            Na verdade esta não é uma idéia muito nova. Utilizar camadas de imagens que se movem em velocidades diferentes é uma técnica que já foi muito utilizada no cinema e até em
+            video games. Quem é um pouco mais velho certamente se lembra dos jogos 2D. As camadas de cenário em jogos como Super Mario, por exemplo, criavam a ilusão de profundidade de 
+            campo quando o personagem se movia pela tela. A idéia aqui é a mesma. Utilizar elementos gráficos como texto, imagens, background etc sobrepostos em camadas que se movem em
+            diferentes velocidades de acordo com a rolagem do mouse na tela.<br></br>A febre se espalhou mesmo na internet com o site Nike Better World (A Smashing Magazine inclusive tem um
+            case bem interessante sobre o projeto). Desde então o parallax foi utilizado em inúmeras situações e se tornou uma ótima ferramenta de storytelling, já que o efeito é ótimo
+            para criar uma continuidade visual como no site Ben, the bodyguard. Ou até mesmo uma história em quadrinhos interativa de como a Soul Reaper.<br></br>Alguns cuidados necessários
+            <br></br>OK. Uma vez tomada a decisão de utilizar o efeito, para aplica-lo na prática é necessário bastante planejamento e uma boa integração entre o designer e o desenvolvedor.
+            É importante sentar junto para pensar quais elementos do layout devem se sobrepor, a qual velocidade, em que momento deverão “aparecer” e “sumir” da tela… Esta etapa é
+            fundamental e se pulada pode levar a uma grande confusão visual digna dos idos tempos do Flash. E o que tinha a intenção de melhorar a experiência acaba atrapalhando… Por isto
+            capriche no wireframe. Pode ser um documento detalhado ou um rabisco no verso de uma folha que só a sua equipe compreende, o importante é ter as informações do projeto
+            pensadas antes de iniciar o desenvolvimento em si ao invés de ficar na tentativa e erro.<br></br>Uma dica importante<br></br>Aqui cabe um alerta. O paralax scrolling é
+            mesmo um efeito bacana e é legal conhecer a técnica, mas é importante saber quando é o melhor momento para se utilizar. Antes de adicionar, não apenas este efeito
+            especificamente como qualquer outro elemento visual, não se esqueça da pergunta “Por que eu quero fazer isto?”…. Principalmente no caso de efeitos e animações que podem
+            influir negativamente na experiência do usuário trazendo poluição visual, aumento no tempo de carregamento de uma pagina, etc. E se a resposta for apenas “porque é
+            bonitinho” é melhor pensar duas vezes antes de utilizar parallax scrolling. Como qualquer aspecto do design, é importante que o parallax seja utilizado não apenas como um
+            efeito visual, mas como parte integrante do storytelling.
+            <br></br><br></br><br></br><br></br> Observação: a rolagem de paralaxe nem sempre funciona em dispositivos móveis/smartphones. No entanto, você pode usar consultas de mídia para desativar o efeito em dispositivos móveis (veja o último exemplo nesta página). <br></br><br></br>
+            <br></br>Link dos sites<br></br>https://www.w3schools.com/howto/howto_css_parallax.asp<br></br>https://tableless.com.br/parallax-scrolling/
+            </p>
+        
+    </div>
+
+    <script>
+        let text = document.getElementById('text');
+        let bird1 = document.getElementById('bird1');
+        let bird2 = document.getElementById('bird2');
+        let bnt = document.getElementById('bnt');
+        let forest = document.getElementById('forest');
+        let rocks = document.getElementById('rocks');
+        let water = document.getElementById('water');
+        let header = document.getElementById('header');
+
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+
+            text.style.top = 50 + value * -0.15 + '%';
+            bird1.style.top = value * -1.5 + 'px';
+            bird1.style.left = value * 2 + 'px';
+            bird2.style.top = value * -1.5 + 'px';
+            bird2.style.left = value * -5 + 'px';
+            bnt.style.marginTop = value * 1.5 + 'px';
+            rocks.style.top = value * -0.12 + 'px';
+            forest.style.top = value * 0.25 + 'px';
+            header.style.top = value * 0.5 + 'px';
+        })
+    </script>
+</body>
+</html>
